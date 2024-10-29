@@ -11,6 +11,7 @@ desktop_path = Path.home()
 class Helpers:
 
     # Esse método basicamente vai tirar tudo oq é desnecessário da api fornecida
+    @staticmethod
     def responseCustom(mangasData):
 
         arrayMangasInfos = {}
@@ -34,6 +35,7 @@ class Helpers:
         return mangasData
     
     # Esse método vai buscar as imagens da capa do mangás, existe 2 resoluções atualmente: 512 ou 256
+    @staticmethod
     def getCoverImage(mangaId, coverId, size):
         
         response = requests.get(
@@ -47,6 +49,7 @@ class Helpers:
         return coverUrl
     
      # Esse método vai organizar os mangás por capitulo (Isso já está sendo feito na query da api, mas fiz isso pra faciliar no meu front) 
+    @staticmethod
     def reorganizeManga(mangalist):
 
         volumes = defaultdict(list)
@@ -65,6 +68,7 @@ class Helpers:
         return formatted_output
     
     # Essa funcao vai apenas montar a url da imagem
+    @staticmethod
     def pagesUrl(apiResponse): 
 
         baseUrl = f"https://uploads.mangadex.org/data/{apiResponse["hash"]}/"
@@ -76,6 +80,7 @@ class Helpers:
         
         return pagesArray
     
+    @staticmethod
     def diretoryCreate(mangalist):
         mangalist = mangalist.json()
 
